@@ -73,7 +73,7 @@ class NeuralNetwork:
 			else:
 
 				self.deltas.append(((self.deltas[i-1]).dot((self.weights[i-1].T)))
-				*self.sigmoid_prime(self.layer_val[i]))
+				*self.sigmoid_prime(self.layer_val[i-1]))
 
 #		print("weights : ", self.weights)
 		for i,a in enumerate(self.layer_val):
@@ -140,17 +140,16 @@ class NeuralNetwork:
 # 	d = np.array(d)
 # 	d = d.reshape(2, 1)
 # 	t.append(d)
+#  target = t
 
-# target = t
-
-data = [1, 2, 3, 4, 5, 6, 7, 30]
-target = [2, 4, 6, 8, 10, 12, 14, 60]
+# data = [1, 2, 3, 4, 5, 6, 7, 30]
+# target = [2, 4, 6, 8, 10, 12, 14, 60]
 
 data = []
 target = []
 for i in range(100):
 	data.append(i)
-	target.append(11*i+i*2)
+	target.append(11*i+i)
 
 data = np.array(data)
 data = data.reshape(len(data), 1)
@@ -171,7 +170,7 @@ nn.train(data, target)
 
 
 nn.feedforward(np.array([2]))
-print("answer : ", 11*2+4)
+print("answer : ", 2*12)
 print(nn.layer_val[-1])
 
 # (nn.feedforward(np.array([0, 1])))
