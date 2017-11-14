@@ -12,6 +12,8 @@ and one Fully connected layer
 
 
 
+
+
 df = load_digits()
 
 filter1 = np.random.random(9)
@@ -24,6 +26,11 @@ bias2 = np.random.random(1)[0]
 
 W1  = np.random.random(16*10)
 W1 = W1.reshape(16,10)
+
+
+
+
+
 
 
 
